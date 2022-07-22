@@ -109,6 +109,37 @@
   </script>
   
     
+      
+      
+      
+      
+        
+        
+        
+        <script>
+          function prismThemeChange() {
+            if(document.getElementById('theme-color').dataset.mode === 'dark') {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            } else {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism.min.css', '[data-prism]', 'prism');
+              } else {
+                loadCSS('/js/lib/prism/prism.min.css', 'prism', 'prism');
+              }
+            }
+          }
+          prismThemeChange()
+        </script>
+      
+      
+        
+        <link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+      
+    
   
   <script>
     // control reverse button
@@ -148,15 +179,18 @@
         localStorage.removeItem('user-color-scheme');
         document.getElementById('theme-color').content = themeColor[setting];
         document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
       } else if(reverseDarkList[setting]) {
         document.documentElement.setAttribute('data-user-color-scheme', setting);
         document.getElementById('theme-color').content = themeColor[setting];
         document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
       } else {
         document.documentElement.removeAttribute('data-user-color-scheme');
         localStorage.removeItem('user-color-scheme');
         document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
         document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+        prismThemeChange();
       }
     };
     setDarkmode();
@@ -318,6 +352,22 @@
   </a>
 </div>
 
+  <div class="author-card-society">
+    
+      <div class="author-card-society-icon">
+        <a target="_blank" rel="noopener" href="https://github.com/tiger-forest">
+          <i class="iconfont icon-github society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="huxiaoshanlin@protonmail.com">
+          <i class="iconfont icon-mail society-icon"></i>
+        </a>
+      </div>
+    
+  </div>
+
               </div>
                <div class="sticky-tablet">
   
@@ -432,7 +482,7 @@
     
     
       <span class="dot"></span>
-      <span>3.3k 字</span>
+      <span>3.2k 字</span>
     
   </div>
   
@@ -480,22 +530,34 @@
 <h1 id="CSS属性"><a href="#CSS属性" class="headerlink" title="CSS属性"></a>CSS属性</h1><p>color, width: …px, height: …px</p>
 <h1 id="CSS内容"><a href="#CSS内容" class="headerlink" title="CSS内容"></a>CSS内容</h1><p>CSS选择器包括<strong>基础选择器</strong>和<strong>复合选择器</strong>。</p>
 <h3 id="一、基础选择器"><a href="#一、基础选择器" class="headerlink" title="一、基础选择器"></a>一、基础选择器</h3><p><strong>基础选择器</strong>包括<strong>标签选择器</strong>、<strong>类选择器</strong>、<strong>id选择器</strong>和<strong>通配符选择器</strong>。</p>
-<h4 id="1-标签选择器"><a href="#1-标签选择器" class="headerlink" title="1.标签选择器"></a>1.标签选择器</h4><pre class="highlight"><span class="line">标签名 &#123;</span><br><span class="line">    属性名<span class="number">1</span>: 属性值<span class="number">1</span>;</span><br><span class="line">    属性名<span class="number">2</span>: 属性值<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre>
+<h4 id="1-标签选择器"><a href="#1-标签选择器" class="headerlink" title="1.标签选择器"></a>1.标签选择器</h4><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">标签名</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">属性名1</span><span class="token punctuation">:</span> 属性值1<span class="token punctuation">;</span>
+    <span class="token property">属性名2</span><span class="token punctuation">:</span> 属性值2<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>对文档中所有指定标签设置样式（没有&lt;&gt;号）</p>
-<h4 id="2-类选择器与多类名"><a href="#2-类选择器与多类名" class="headerlink" title="2.类选择器与多类名"></a>2.类选择器与多类名</h4><pre class="highlight"><span class="line">.类名 &#123;</span><br><span class="line">    属性名<span class="number">1</span>: 属性值<span class="number">1</span>;</span><br><span class="line">    属性名<span class="number">2</span>: 属性值<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre>
+<h4 id="2-类选择器与多类名"><a href="#2-类选择器与多类名" class="headerlink" title="2.类选择器与多类名"></a>2.类选择器与多类名</h4><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.类名</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">属性名1</span><span class="token punctuation">:</span> 属性值1<span class="token punctuation">;</span>
+    <span class="token property">属性名2</span><span class="token punctuation">:</span> 属性值2<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="highlight"><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;类名1 类名2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>类名1 类名2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>1.长名称或词组用中横线分隔单词，如：.news-header。</p>
 <p>2.不能用纯数字命名。</p>
 <p>3.不能用HTML中标签名来命名。</p>
-<h4 id="3-id选择器"><a href="#3-id选择器" class="headerlink" title="3.id选择器"></a>3.id选择器</h4><pre class="highlight"><span class="line">#标签id &#123;</span><br><span class="line">    属性名<span class="number">1</span>: 属性值<span class="number">1</span>;</span><br><span class="line">    属性名<span class="number">2</span>: 属性值<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre>
+<h4 id="3-id选择器"><a href="#3-id选择器" class="headerlink" title="3.id选择器"></a>3.id选择器</h4><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">#标签id</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">属性名1</span><span class="token punctuation">:</span> 属性值1<span class="token punctuation">;</span>
+    <span class="token property">属性名2</span><span class="token punctuation">:</span> 属性值2<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="highlight"><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;标签id&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>标签id<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>id独一无二</p>
-<h4 id="4-通配符选择器"><a href="#4-通配符选择器" class="headerlink" title="4.通配符选择器"></a>4.通配符选择器</h4><pre class="highlight"><span class="line">* &#123;</span><br><span class="line">    属性名<span class="number">1</span>: 属性值<span class="number">1</span>;</span><br><span class="line">    属性名<span class="number">2</span>: 属性值<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre>
+<h4 id="4-通配符选择器"><a href="#4-通配符选择器" class="headerlink" title="4.通配符选择器"></a>4.通配符选择器</h4><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">*</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">属性名1</span><span class="token punctuation">:</span> 属性值1<span class="token punctuation">;</span>
+    <span class="token property">属性名2</span><span class="token punctuation">:</span> 属性值2<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>对全局设置样式</p>
 <h3 id="二、字体属性"><a href="#二、字体属性" class="headerlink" title="二、字体属性"></a>二、字体属性</h3><h4 id="1-font-family字体系列"><a href="#1-font-family字体系列" class="headerlink" title="1.font-family字体系列"></a>1.font-family字体系列</h4><p><code>div &#123;font-family: &quot;微软雅黑&quot;, &quot;宋体&quot;, Arial&#125;</code></p>
@@ -632,39 +694,64 @@
 <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>想让图片水平居中，则是让它的父标签添加水平居中的代码</p>
 <h3 id="五、Emmet语法"><a href="#五、Emmet语法" class="headerlink" title="五、Emmet语法"></a>五、Emmet语法</h3><p><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://static.wenshushu.cn/uf/8uz1g2pjbnw/img?st=MXI0NTJhMmptZzcuUXdpQjQ=&op=zmmw-1200" class="lozad post-image"src="https://static.wenshushu.cn/uf/8uz1g2pjbnw/img?st=MXI0NTJhMmptZzcuUXdpQjQ=&op=zmmw-1200"></p>
 <p><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://static.wenshushu.cn/uf/8uz1hgy5p2l/img?st=MXI0NTJhMmptZzcuUXdpQjQ=&op=zmmw-1200" class="lozad post-image"src="https://static.wenshushu.cn/uf/8uz1hgy5p2l/img?st=MXI0NTJhMmptZzcuUXdpQjQ=&op=zmmw-1200"></p>
-<h3 id="六、复合选择器"><a href="#六、复合选择器" class="headerlink" title="六、复合选择器"></a>六、复合选择器</h3><h4 id="1-后代选择器-x2F-包含选择器"><a href="#1-后代选择器-x2F-包含选择器" class="headerlink" title="1.后代选择器&#x2F;包含选择器"></a>1.后代选择器&#x2F;包含选择器</h4><pre class="highlight"><span class="line">父元素 子元素 &#123; 样式声明 &#125;</span><br></pre>
+<h3 id="六、复合选择器"><a href="#六、复合选择器" class="headerlink" title="六、复合选择器"></a>六、复合选择器</h3><h4 id="1-后代选择器-x2F-包含选择器"><a href="#1-后代选择器-x2F-包含选择器" class="headerlink" title="1.后代选择器&#x2F;包含选择器"></a>1.后代选择器&#x2F;包含选择器</h4><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">父元素 子元素</span> <span class="token punctuation">&#123;</span> 样式声明 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><em><strong>此时子元素中若还有子元素，样式声明对其同样有效</strong></em></p>
 <p>或</p>
-<pre class="highlight"><span class="line">父元素 子元素 子子元素 子子子…… &#123; 样式声明 &#125;</span><br></pre>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">父元素 子元素 子子元素 子子子……</span> <span class="token punctuation">&#123;</span> 样式声明 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
 <p>父子元素可以是任意基础的选择器：</p>
-<pre class="highlight"><span class="line"><span class="selector-class">.class</span> 父元素 子元素 &#123; 样式声明 &#125;</span><br></pre>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.class 父元素 子元素</span> <span class="token punctuation">&#123;</span> 样式声明 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>如</p>
-<pre class="highlight"><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.aaa</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span> &#123; 样式声明 &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span> <span class="attr">class</span>=<span class="string">&quot;aaa&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>123<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span> <span class="comment">&lt;!--此时样式声明对该超链接起作用--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+        <span class="token selector">.aaa li a</span> <span class="token punctuation">&#123;</span> 样式声明 <span class="token punctuation">&#125;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
 
-<h4 id="2-子元素选择器"><a href="#2-子元素选择器" class="headerlink" title="2.子元素选择器"></a>2.子元素选择器</h4><pre class="highlight"><span class="line">父元素 &gt; 子元素 &#123; 样式声明 &#125;</span><br></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ol</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>aaa<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>123<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span> <span class="token comment">&lt;!--此时样式声明对该超链接起作用--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ol</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-子元素选择器"><a href="#2-子元素选择器" class="headerlink" title="2.子元素选择器"></a>2.子元素选择器</h4><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">父元素 > 子元素</span> <span class="token punctuation">&#123;</span> 样式声明 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>子元素选择器只选择最近一级的子元素。如果子元素中还有子子元素，子元素选择器对这个子子元素不起作用。</p>
-<h4 id="3-并集选择器"><a href="#3-并集选择器" class="headerlink" title="3.并集选择器"></a>3.并集选择器</h4><pre class="highlight"><span class="line">元素<span class="number">1</span>,</span><br><span class="line">元素<span class="number">2</span> &#123;</span><br><span class="line">    样式声明</span><br><span class="line">&#125;</span><br></pre>
+<h4 id="3-并集选择器"><a href="#3-并集选择器" class="headerlink" title="3.并集选择器"></a>3.并集选择器</h4><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">元素1,
+元素2</span> <span class="token punctuation">&#123;</span>
+    样式声明
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>书写习惯，并集选择器竖着写</li>
 <li>表示选择多组标签，定义相同的样式</li>
 <li>同样可以是任意基础的选择器</li>
 </ul>
-<h4 id="4-伪类选择器"><a href="#4-伪类选择器" class="headerlink" title="4.伪类选择器"></a>4.伪类选择器</h4><h5 id="1-链接伪类选择器"><a href="#1-链接伪类选择器" class="headerlink" title="1.链接伪类选择器"></a>1.链接伪类选择器</h5><pre class="highlight"><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123; 样式声明 &#125;  <span class="comment">/*选择所有未被访问的链接*/</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123; 样式声明 &#125;  <span class="comment">/*选择所有已被访问的链接*/</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123; 样式声明 &#125;  <span class="comment">/*选择鼠标指针位于其上的链接*/</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123; 样式声明 &#125;  <span class="comment">/*选择活动链接（鼠标按下未弹起的链接）*/</span></span><br></pre>
+<h4 id="4-伪类选择器"><a href="#4-伪类选择器" class="headerlink" title="4.伪类选择器"></a>4.伪类选择器</h4><h5 id="1-链接伪类选择器"><a href="#1-链接伪类选择器" class="headerlink" title="1.链接伪类选择器"></a>1.链接伪类选择器</h5><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">a:link</span> <span class="token punctuation">&#123;</span> 样式声明 <span class="token punctuation">&#125;</span>  <span class="token comment">/*选择所有未被访问的链接*/</span>
+<span class="token selector">a:visited</span> <span class="token punctuation">&#123;</span> 样式声明 <span class="token punctuation">&#125;</span>  <span class="token comment">/*选择所有已被访问的链接*/</span>
+<span class="token selector">a:hover</span> <span class="token punctuation">&#123;</span> 样式声明 <span class="token punctuation">&#125;</span>  <span class="token comment">/*选择鼠标指针位于其上的链接*/</span>
+<span class="token selector">a:active</span> <span class="token punctuation">&#123;</span> 样式声明 <span class="token punctuation">&#125;</span>  <span class="token comment">/*选择活动链接（鼠标按下未弹起的链接）*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h6 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h6><ol>
 <li>按照L（link）V（visited）H（hover）A（active）的顺序声明</li>
 <li>因为a链接在浏览器中有默认的样式，所以在实际中需要给链接单独指定样式。(比如假设一个div标签中包含着一个a标签，我们设置了div的css样式，但不会对里面的a标签起作用。)</li>
 </ol>
-<h6 id="常用的链接样式"><a href="#常用的链接样式" class="headerlink" title="常用的链接样式"></a>常用的链接样式</h6><pre class="highlight"><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: gray;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: b</span><br><span class="line">&#125;</span><br></pre>
+<h6 id="常用的链接样式"><a href="#常用的链接样式" class="headerlink" title="常用的链接样式"></a>常用的链接样式</h6><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">a</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> gray<span class="token punctuation">;</span>
+    <span class="token property">text-decoration</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">a:hover</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> b
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="2-focus伪类选择器"><a href="#2-focus伪类选择器" class="headerlink" title="2.focus伪类选择器"></a>2.focus伪类选择器</h5><pre class="highlight"><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:focus</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: 输入框背景颜色;</span><br><span class="line">    <span class="attribute">color</span>: 输入内容的颜色;</span><br><span class="line">&#125;</span><br></pre>
+<h5 id="2-focus伪类选择器"><a href="#2-focus伪类选择器" class="headerlink" title="2.focus伪类选择器"></a>2.focus伪类选择器</h5><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">input:focus</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> 输入框背景颜色<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> 输入内容的颜色<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="七、CSS元素显示模式"><a href="#七、CSS元素显示模式" class="headerlink" title="七、CSS元素显示模式"></a>七、CSS元素显示模式</h3><h4 id="1-什么是元素显示模式"><a href="#1-什么是元素显示模式" class="headerlink" title="1.什么是元素显示模式"></a>1.什么是元素显示模式</h4><p>指元素（标签）以什么方式显示，如div、h1独占一行，span一行里可以有多个。</p>
 <p>一般分为<strong>块元素</strong>（<em>独占一行</em>）和<strong>行内元素</strong>（<em>一行多个</em>）两种类型。</p>
@@ -750,15 +837,31 @@
 <p>a（Alpha）指透明度，为0~1之间的小数。可以省略0，写成.3等的形式。</p>
 <h3 id="九、CSS三大特性"><a href="#九、CSS三大特性" class="headerlink" title="九、CSS三大特性"></a>九、CSS三大特性</h3><h4 id="1-层叠性"><a href="#1-层叠性" class="headerlink" title="1.层叠性"></a>1.层叠性</h4><p>就近原则，后来者居上。</p>
 <h4 id="2-继承性"><a href="#2-继承性" class="headerlink" title="2.继承性"></a>2.继承性</h4><p>例：</p>
-<pre class="highlight"><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">div</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<pre class="highlight"><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        test</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+        test
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>此时“test”也会变成蓝色</p>
 <p>子元素可以继承父代元素的样式（font-xxxxx，text-xxxxx，line-xxxxx，color）</p>
-<h5 id="行高的继承"><a href="#行高的继承" class="headerlink" title="行高的继承"></a>行高的继承</h5><pre class="highlight"><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">font</span>: <span class="number">12px</span>/<span class="number">1.5</span> <span class="string">&quot;Microsoft YaHei&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre>
+<h5 id="行高的继承"><a href="#行高的继承" class="headerlink" title="行高的继承"></a>行高的继承</h5><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">body</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">font</span><span class="token punctuation">:</span> 12px/1.5 <span class="token string">"Microsoft YaHei"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-<pre class="highlight"><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        文字</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre>
+<span class="token selector">p</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+        文字
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>“&#x2F;”后面的1.5指的是子元素文字的1.5倍</p>
 <h4 id="3-优先级（权重）"><a href="#3-优先级（权重）" class="headerlink" title="3.优先级（权重）"></a>3.优先级（权重）</h4><table>
@@ -795,7 +898,9 @@
 </tbody></table>
 <p><em><strong>继承的权重是0</strong></em></p>
 <p><strong>使用!important：</strong></p>
-<pre class="highlight"><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red<span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">div</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>此时color: red属性为全局优先。</p>
 <h5 id="权重的叠加"><a href="#权重的叠加" class="headerlink" title="权重的叠加"></a>权重的叠加</h5><p>如果是<strong>复合选择器</strong>，则会有<strong>权重叠加</strong>，需要计算权重。</p>
@@ -859,33 +964,14 @@
 <li>为父元素定义内边距</li>
 <li>为父元素添加overflow:hidden;。</li>
 </ul>
-<h5 id="清除内外边距（全局）"><a href="#清除内外边距（全局）" class="headerlink" title="清除内外边距（全局）"></a>清除内外边距（全局）</h5><pre class="highlight"><span class="line">* &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre>
+<h5 id="清除内外边距（全局）"><a href="#清除内外边距（全局）" class="headerlink" title="清除内外边距（全局）"></a>清除内外边距（全局）</h5><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">*</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
   </div>
   <div>
-    
-      <div 
-        class="post-note note-warning copyright" 
-        style="margin-top: 42px">
-        <p>
-          <span style="font-weight: bold;">作者：</span><a 
-            target="_blank" 
-            rel="nofollow noopener noreferrer" 
-            href="/about">
-            TigerForest
-          </a>
-        </p>
-        <p>
-          <span style="font-weight: bold;">文章链接：</span><a 
-            target="_blank" 
-            rel="nofollow noopener noreferrer" 
-            href="https://tiger-forest.github.io/2022/07/16/css-note.html">
-            https://tiger-forest.github.io/2022/07/16/css-note.html
-          </a>
-        </p>
-        <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
-      </div>
     
   </div>
 </article>
@@ -1138,6 +1224,10 @@
     <script src="//instant.page/5.1.0" type="module"
       integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
     
+    
+      <script>
+        setTimeout(() => {localSearch("search.json")}, 0)
+      </script>
     
   </body>
 </html>
